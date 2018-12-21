@@ -1,0 +1,473 @@
+/* universal styles */
+html {
+    overflow-y: scroll;
+    background-color: lightgray;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/*menu*/
+
+#menu {
+
+}
+
+*:focus, *:active {
+    outline: none;
+}
+
+img {
+    border-width: 0px;
+}
+
+input, textarea {
+    outline: 0px;
+}
+
+textarea {
+    overflow-y: scroll;
+}
+
+ul, li {
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0px;
+}
+
+th, td {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+a:focus {
+    outline: none;
+}
+
+/* fonts */
+#header h1, h1 a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    color: #f6f6f6;
+    font-weight: normal;
+    line-height: 29px;
+}
+
+#header h2 {
+    margin-bottom: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #191919;
+    font-weight: normal;
+}
+
+#header h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333333;
+    font-weight: bold;
+}
+
+#header h4 {
+    font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 11px;
+    color: #808080;
+    font-weight: normal;
+    font-style: italic;
+}
+
+#header p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 17px;
+}
+
+#header a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input, textarea {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* general styles */
+.inner {
+    width: 940px;
+    margin: 0px auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cl {
+    height: 1px;
+    overflow: hidden;
+    clear: both;
+}
+
+/* buttons styles */
+.general_read_more_1 {
+    width: 176px;
+    height: 31px;
+    padding-top: 13px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url(images/bg_button_light_1.png);
+    background-position: 0px 0px;
+    font-size: 14px;
+    color: #0589c6;
+    text-indent: 17px;
+}
+
+.general_read_more_1:hover {
+    background-position: 0px -44px;
+    text-decoration: none;
+}
+
+.general_button_1 {
+    width: 185px;
+    height: 34px;
+    line-height: 36px;
+    display: block;
+    background-repeat: repeat-x;
+    background-image: url(images/bg_button_blue_1.png);
+    font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif;
+    color: #ebf5fa;
+    font-style: italic;
+    text-shadow: 0px -1px #326d88;
+    text-indent: 20px;
+}
+
+.general_button_1:hover {
+    background-position: 0px -34px;
+    text-decoration: none;
+}
+
+/* header styles */
+#header {
+    height: 122px;
+    background: #065E52 repeat-x;
+    margin: 0 auto;
+    font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+    text-align: center;
+}
+
+#header .section_top {
+    height: 34px;
+    overflow: hidden;
+}
+
+#header .section_top p, #header .section_top a {
+    font-size: 11px;
+    color: #ffffff;
+}
+
+#header .section_bottom {
+    height: 84px;
+}
+
+.block_top_text {
+    height: 34px;
+    float: left;
+    overflow: hidden;
+}
+
+.block_top_text p {
+    line-height: 34px;
+    color: #ffffff;
+}
+
+.site_top_links {
+    margin-right: 12px;
+    padding-top: 10px;
+    float: right;
+    overflow: hidden;
+}
+
+.site_top_links li {
+    height: 14px;
+    line-height: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: block;
+    float: left;
+    overflow: hidden;
+    border-right: 1px solid #404040;
+    border-left: #141414 1px solid;
+}
+
+.site_top_links li:first-child {
+    border-left: none;
+}
+
+.site_top_links ul {
+    border-right: #141414 1px solid;
+    overflow: hidden;
+}
+
+#title_top {
+    padding-left: 1px;
+    padding-top: 26px;
+    float: left;
+    overflow: hidden;
+}
+
+#title_top p, #title_top a {
+    font-family: 'Lobster Two', Georgia, "Times New Roman", Times, serif;
+    font-size: 37px;
+    color: #0589c6;
+    line-height: normal;
+    display: block;
+}
+
+#title_top a {
+    background: url(images/logo_top_left.png) no-repeat 0 0;
+}
+
+#title_top img {
+    width: 163px;
+    height: 38px;
+    background: url(images/logo_top.png) no-repeat 0 0;
+}
+
+#title_top a:hover {
+    text-decoration: none;
+}
+
+#title_top a span {
+    color: #000000;
+}
+
+#main_menu {
+    padding-top: 27px;
+    float: right;
+}
+
+#main_menu a:hover {
+    text-decoration: none;
+}
+
+#main_menu li {
+    padding: 0px 21px;
+    display: block;
+    float: left;
+    position: relative;
+    z-index: 10;
+}
+
+#main_menu li:first-child {
+    background: none;
+}
+
+#main_menu li a {
+    height: 54px;
+    padding-top: 7px;
+    display: block;
+    font-size: 13px;
+    color: #4E9790;
+    font-weight: bold;
+}
+
+#main_menu li:hover > a {
+    color: #ffffff;
+}
+
+#main_menu li.active > a {
+    color: #ffffff;
+}
+
+#main_menu li > ul {
+    width: 182px;
+    margin-left: -25.5px;
+/ / margin-left : - 26 px;
+    padding-bottom: 6px;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 58px;
+    background: url(images/bg_main_submenu_bottom.png) no-repeat left bottom;
+    z-index: 10;
+}
+
+#main_menu li > ul > li {
+    width: 100%;
+    padding: 0px;
+    clear: left;
+    background: url(images/bg_main_submenu_mid.png) repeat-y;
+}
+
+#main_menu li > ul > li.top {
+    width: 182px;
+    height: 8px;
+    display: block;
+    overflow: hidden;
+    background: url(images/bg_main_submenu_top.png) no-repeat;
+}
+
+#main_menu li > ul > li > a {
+    height: auto;
+    margin: 0px 1px;
+    padding: 8px 12px 7px;
+    font-size: 12px;
+    color: #808080;
+    font-weight: normal;
+    background: none !important;
+}
+
+#main_menu li > ul > li:hover > a {
+    background: none;
+    color: #707070;
+}
+
+#main_menu li > ul > li > ul > li.top {
+    background-position: 0 -5px !important;
+    height: 3px;
+}
+
+.content_inner {
+    height: 80%;
+    margin: 0px auto;
+    padding-top: 20px;
+    font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+    text-align: center;
+    line-height: 24px;
+    background-color: #ffffff;
+}
+/*separators*/
+
+.separator_1 {
+    height: 35px;
+    clear: both;
+    overflow: hidden;
+    background: rgba(41,41,41,1);
+    background: -moz-linear-gradient(top, rgba(41,41,41,1) 0%, rgba(41,45,46,1) 50%, rgba(19,20,20,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(41,41,41,1) 0%, rgba(41,45,46,1) 50%, rgba(19,20,20,1) 100%);
+    background: -o-linear-gradient(top, rgba(41,41,41,1) 0%, rgba(41,45,46,1) 50%, rgba(19,20,20,1) 100%);
+    background: -ms-linear-gradient(top, rgba(41,41,41,1) 0%, rgba(41,45,46,1) 50%, rgba(19,20,20,1) 100%);
+    background: linear-gradient(to bottom, rgba(41,41,41,1) 0%, rgba(41,45,46,1) 50%, rgba(19,20,20,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#292929', endColorstr='#131414', GradientType=0 );
+}
+.separator_1 p {
+    color: #ffffff;
+    font-size: 22px;
+    font-family: Arial;
+    padding-left: 20px;
+    padding-top: 4px;
+}
+
+.line_1 {
+    height: 1px;
+    overflow: hidden;
+}
+
+.content_inner p {
+    color: #000000;
+
+}
+
+html {
+    background: #eee;
+}
+
+header h1 {
+    padding: 0.4em 1.1em;
+    color: white;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+section#main {
+    position: relative;
+}
+
+
+section#main .topRight {
+    position: absolute;
+    right: 20px;
+    top: 70px;
+}
+
+table.computers em {
+    color: #aaa;
+}
+
+table.computers {
+    width: 50%;
+    margin-left: 30px;
+
+}
+
+table.computers .header a {
+}
+
+#actions {
+    position: relative;
+}
+
+
+#actions #add {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+#edit_main {
+    position: relative;
+}
+
+#edit_main h1 {
+    margin-left: 30px;
+}
+
+#remove_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+#pagination {
+}
+
+#title_message {
+    margin-left: 30px;
+}
+
+#pagination ul {
+    margin-left: 30px;
+    right: 0;
+}
+
+#pagination ul .current a {
+    color: #666;
+}
+
+
+
+
+/*                */
+
+

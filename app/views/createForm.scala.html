@@ -1,0 +1,45 @@
+@(stafferForm: Form[Staffer])(implicit messages: Messages)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+
+@main {
+
+    <div id="edit_main">
+
+    <h1>Добавить сотрудника</h1>
+
+    @form(routes.Staff.checkCode()) {
+
+        <fieldset>
+
+            @inputText(stafferForm("name"), '_label -> "Имя", '_help -> "")
+            @inputText(stafferForm("surname"), '_label -> "Фамилия", '_help -> "")
+            @inputText(stafferForm("middle_name"), '_label -> "Отчество", '_help -> "")
+
+            @inputText(stafferForm("code"), '_label -> "Код сотрудника", '_help -> "")
+
+            @inputFile(stafferForm("image"), '_label -> "Фото", '_help -> "")
+            @inputDate(stafferForm("birth"), '_label -> "Дата рождения", '_help -> "")
+
+            @select(
+                stafferForm("position"),
+                Positions.getAllPositions,
+                '_label -> "Должность", '_default -> "-- Choose a position --",
+                '_showConstraints -> false
+            )
+
+        </fieldset>
+
+
+        <div class="actions">
+            <input type="submit" value="Создать сотрудника" class="btn success"> или
+            <a href="@routes.Staff.list()" class="btn">Отмена</a>
+        </div>
+
+    }
+    </div>
+
+}

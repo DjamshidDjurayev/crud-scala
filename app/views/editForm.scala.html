@@ -1,0 +1,47 @@
+@(id: Long, staffForm: Form[Staffer])(implicit messages: Messages)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main {
+    <div id="edit_main">
+
+    <h1>Редактировать данные</h1>
+
+    <div id="remove_button">
+    @form(routes.Staff.delete(id), 'class -> "topRight") {
+        <input type="submit" value="Удалить сотрудника" class="btn danger">
+    }
+    </div>
+
+    @form(routes.Staff.addNewStaff()) {
+
+        <fieldset>
+            @inputText(staffForm("name"), '_label -> "Имя", '_help -> "")
+            @inputText(staffForm("surname"), '_label -> "Фамилия", '_help -> "")
+            @inputText(staffForm("middle_name"), '_label -> "Отчество", '_help -> "")
+            @inputText(staffForm("code"), '_label -> "Код сотрудника", '_help -> "")
+
+            @inputFile(staffForm("image"), '_label -> "Фото", '_help -> "")
+            @inputDate(staffForm("birth"), '_label -> "Дата рождения", '_help -> "")
+
+            @select(
+                staffForm("position"),
+                Positions.getAllPositions,
+                '_label -> "Должность", '_default -> "-- Choose a position --",
+                '_showConstraints -> false
+            )
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Сохранить сотрудника" class="btn success"> или
+            <a href="@routes.Staff.list()" class="btn">Отмена</a>
+        </div>
+
+    }
+
+    </div>
+
+}

@@ -1,0 +1,4 @@
+# Messages
+
+staff.list.title={0,choice,0#No users|1#One user|1<{0,number,integer} users} found
+news.list.title={0,choice,0#No news|1#One news|1<{0,number,integer} news} found

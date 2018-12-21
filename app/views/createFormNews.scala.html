@@ -1,0 +1,29 @@
+@(newsForm: Form[PaperNew])(implicit messages: Messages)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main {
+    <div id="edit_main">
+
+    <h1>Добавить новость</h1>
+    
+    @form(routes.News.addNews()) {
+        
+        <fieldset>
+            @inputText(newsForm("title"), '_label -> "Название", '_help -> "")
+            @textarea(newsForm("description"), '_label -> "Описание", '_help -> "")
+            @inputDate(newsForm("creation_date"), '_label -> "Дата добавления", '_help -> "")
+
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Добавить новость" class="btn success"> или
+            <a href="@routes.News.list2()" class="btn">Отмена</a>
+        </div>
+        
+    }
+    </div>
+
+}

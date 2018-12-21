@@ -1,0 +1,144 @@
+@(currentPage: Page[Staffer], currentOrderBy: Int, currentFilter: String)(implicit flash: play.api.mvc.Flash, messages: Messages)
+
+<!DOCTYPE html>
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    </head>
+    <body>
+
+        <header class="topbar">
+            <h1 class="fill">
+                <a>
+                        <ul>
+                        <li class="active"><a href="@routes.Staff.list()">Сотрудники</a></li>
+                        <li><a href="@routes.News.list2()">Новости</a></li>
+                        </ul>
+                </a>
+            </h1>
+        </header>
+
+         <section>
+                @*<!-- HEADER BEGIN -->*@
+            @*<div id="header">*@
+                @*<div class="inner">*@
+                    @*<div class="section_bottom">*@
+                        @*<div id="main_menu">*@
+                            @*<ul>*@
+                                @*<li class="active"><a href="@routes.Staff.list()">Сотрудники</a></li>*@
+                                @*<li><a href="@routes.News.list2()">Новости</a></li>*@
+                            @*</ul>*@
+                        @*</div>*@
+                    @*</div>*@
+                @*</div>*@
+            @*</div>*@
+                @*<!-- HEADER END -->*@
+
+            @*<header class="topbar">*@
+                @*<h1 class="fill">*@
+                    @*<a>Сотрудники</a>*@
+                @*</h1>*@
+            @*</header>*@
+
+
+            <section id="main">
+
+            @flash.get("success").map { message =>
+                <div class="alert-message warning">
+                    <strong>Done!</strong> @message
+                </div>
+            }
+
+            </section>
+
+            <div id="actions">
+                <a class="btn success" id="add" href="#">Добавить сотрудника</a>
+            </div>
+
+
+            @link(newPage: Int, newOrderBy: Option[Int] = None) = @{
+                routes.Staff.list(newPage, newOrderBy.map { orderBy =>
+                    if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
+                }.getOrElse(currentOrderBy), currentFilter)
+
+            }
+
+            @header(orderBy: Int, title: String) = {
+                <th class="col@orderBy header @if(scala.math.abs(currentOrderBy) == orderBy) @{if(currentOrderBy < 0) "headerSortDown" else "headerSortUp"}">
+                    <a href="@link(0, Some(orderBy))"><h2>@title</h2></a>
+                </th>
+            }
+
+            <h1 id="title_message">@Messages("staff.list.title", currentPage.total)</h1>
+
+
+            @Option(currentPage.items).filterNot(_.isEmpty).map { users =>
+
+            <table class="computers zebra-striped">
+                <thead>
+                    <tr>
+                        @header(1, "Сотрудники")
+                    </tr>
+                </thead>
+                <tbody>
+
+                @users.map {
+                    case (staffer) => {
+                        <tr>
+                            <td><h5><a href="#">@staffer.name @staffer.surname @staffer.middle_name</a></h5></td>
+                        </tr>
+                    }
+                }
+
+                </tbody>
+            </table>
+
+            <div id="pagination" class="pagination">
+                <ul>
+                    @currentPage.prev.map { page =>
+                    <li class="prev">
+                        <a href="@link(page)">&larr; Предыдущий</a>
+                    </li>
+                    }.getOrElse {
+                        <li class="prev disabled">
+                            <a>&larr; Предыдущий</a>
+                        </li>
+                    }
+                <li class="current">
+                    <a>Страница @(currentPage.offset + 1) по @(currentPage.offset + users.size) из @currentPage.total</a>
+                </li>
+                    @currentPage.next.map { page =>
+                    <li class="next">
+                        <a href="@link(page)">Следующий &rarr;</a>
+                    </li>
+                    }.getOrElse {
+                        <li class="next disabled">
+                            <a>Следующий &rarr;</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            }.getOrElse {
+
+                <div class="well">
+                    <em>Пусто</em>
+                </div>
+
+            }
+
+
+        </section>
+
+
+
+    </body>
+</html>
+
+

@@ -1,0 +1,75 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                 @controllers.Application.index
+GET         /staff/                           @controllers.Staff.list(p:Int ?= 0, s:Int ?= 2, f ?= "")
+GET         /news/                            @controllers.News.list2(p:Int ?= 0, s:Int ?= 2, f ?= "")
+
+#GET         /computers           @controllers.Staff.list(p:Int ?= 0, s:Int ?= 2, f ?= "")
+
+#GET         /staff/new                        @controllers.Staff.create
+GET         /news/new                         @controllers.News.create
+
+#POST        /staffer                          @controllers.Staff.addStaff
+POST        /news                             @controllers.News.addNews
+
+GET         /news/:id                         @controllers.News.edit(id:Long)
+POST        /news/:id                         @controllers.News.update(id:Long)
+
+#GET         /staffer/:id                      @controllers.Staff.edit(id:Long)
+#POST        /staffer/:id                      @controllers.Staff.update(id:Long)
+
+POST        /staffer/:id/delete               @controllers.Staff.delete(id:Long)
+POST        /news/:id/delete                  @controllers.News.delete(id:Long)
+
+# Api (json)
+POST        /api/addStaff                     @controllers.Staff.addNewStaff
+POST        /api/editStaff                    @controllers.Staff.editStaff
+GET         /api/deleteStaff                  @controllers.Staff.deleteOneStaff(id:String)
+
+POST        /api/sendPicture                  @controllers.Administrator.sendPicture
+
+GET         /api/getStaffByCode               @controllers.Staff.getStaffByQrCode(code: String)
+GET         /api/persons                      @controllers.Staff.getStaff
+GET         /api/news                         @controllers.News.getNews
+GET         /api/positions                    @controllers.Administrator.getPositions
+
+GET         /api/addPosition                  @controllers.Administrator.addPosition(title: String)
+GET         /api/deletePosition               @controllers.Administrator.deletePosition(title: String)
+GET         /api/editPosition                 @controllers.Administrator.editPosition(oldTitle: String, newTitle: String)
+#GET         /api/addNews                     @controllers.News.addOneNews(title: String, description: String)
+GET         /api/adminAuth                    @controllers.Administrator.adminAuth(login: String, password: String)
+GET         /api/addAdmin                     @controllers.Administrator.addAdmin(name: String, surname: String, login: String, password: String)
+GET         /api/deleteAdmin                  @controllers.Administrator.deleteAdmin(login: String, password: String)
+GET         /api/allAdmins                    @controllers.Administrator.getAdmins
+GET         /api/checkCode                    @controllers.Staff.checkCode
+
+GET         /api/device/registerDevice        @controllers.DeviceController.registerDevice(tokenId: String)
+GET         /api/device/removeDevice          @controllers.DeviceController.removeDevice(tokenId: String)
+GET         /api/device/updateDevice          @controllers.DeviceController.updateDevice(tokenId: String)
+GET         /api/device/getAllDevices         @controllers.DeviceController.getAllDevices
+
+POST        /api/message/addMessageViaPost    @controllers.Administrator.addMessageViaPost
+POST        /api/message/addForRoma           @controllers.Administrator.forRoma
+GET         /api/message/addMessage           @controllers.Administrator.addMessage(sender: String, message: String)
+GET         /api/message/getAllMessages       @controllers.Administrator.getAllMessages
+GET         /api/message/getRomaMessages      @controllers.Administrator.getRomaMessages
+
+GET         /api/getStatistics                @controllers.Administrator.getStatistics(login: String, password: String)
+GET         /api/getAllHistory                @controllers.Staff.getAllHistory(login: String, password: String)
+GET         /api/addHistory                   @controllers.Staff.addHistory(userId: String)
+GET         /api/getHistoryByStaff            @controllers.Staff.getHistory(userId: String)
+GET         /api/getStaffActionsByDate        @controllers.Staff.getActionsByDate(userId: String, date: Long)
+
+GET         /api/getStaffById                 @controllers.Staff.getOneStaff(id:Long)
+GET         /api/*file                        @controllers.Assets.at(path="/public", file)
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                     @controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file                     @controllers.Assets.at(path="/public", file)
+
